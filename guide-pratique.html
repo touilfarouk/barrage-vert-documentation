@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Guide pratique – Décision de financement</title>
+    <style>
+        :root {
+            --green-dark: #0b6a36;
+            --green-light: #8ad17f;
+            --gray-bg: #f5f7f6;
+            --text-main: #1f1f1f;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            margin: 0;
+            background: var(--gray-bg);
+        }
+        header.hero {
+            position: relative;
+            padding: 72px 40px;
+            background: linear-gradient(135deg, rgba(11,106,54,0.92), rgba(62,181,106,0.85));
+            color: #fff;
+            overflow: hidden;
+        }
+        header.hero::before,
+        header.hero::after {
+            content: "";
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            border: 2px solid rgba(255,255,255,0.4);
+            border-radius: 32px;
+            transform: rotate(30deg);
+        }
+        header.hero::before {
+            top: -80px;
+            left: -40px;
+        }
+        header.hero::after {
+            bottom: -120px;
+            right: -20px;
+        }
+        .hero-content {
+            max-width: 720px;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-content h1 {
+            font-size: 42px;
+            margin: 0 0 16px 0;
+            letter-spacing: 1px;
+        }
+        .hero-content p {
+            margin: 6px 0;
+        }
+        main {
+            max-width: 900px;
+            margin: -40px auto 40px auto;
+            background: #fff;
+            padding: 48px;
+            border-radius: 18px;
+            box-shadow: 0 22px 45px rgba(11,106,54,0.12);
+        }
+        h2 {
+            color: var(--green-dark);
+            margin-top: 40px;
+            margin-bottom: 12px;
+            font-size: 24px;
+        }
+        h3 {
+            color: var(--green-dark);
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        ul {
+            margin: 0 0 18px 22px;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 6px;
+        }
+        .summary {
+            border: 1px solid rgba(11,106,54,0.25);
+            border-radius: 12px;
+            padding: 24px;
+            background: linear-gradient(135deg, rgba(138,209,127,0.18), rgba(255,255,255,0.9));
+        }
+        .summary h2 {
+            margin-top: 0;
+        }
+        .summary ul {
+            columns: 2;
+            column-gap: 24px;
+        }
+        .summary li {
+            break-inside: avoid;
+        }
+        section.stage {
+            padding: 24px 0;
+            border-bottom: 1px solid rgba(11,106,54,0.12);
+        }
+        section.stage:last-of-type {
+            border-bottom: none;
+        }
+        .stage-header {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+        }
+        .stage-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--green-dark);
+        }
+        figure {
+            margin: 16px auto;
+            text-align: center;
+            max-width: 420px;
+        }
+        figure img {
+            width: 100%;
+            border: 4px solid rgba(11,106,54,0.18);
+            border-radius: 14px;
+            box-shadow: 0 12px 24px rgba(11,106,54,0.16);
+        }
+        figcaption {
+            font-size: 0.88em;
+            color: #4a4a4a;
+            margin-top: 10px;
+        }
+        footer {
+            position: relative;
+            padding: 32px 24px;
+            text-align: center;
+            color: #fff;
+            background: linear-gradient(135deg, rgba(11,106,54,0.9), rgba(18,142,74,0.85));
+            overflow: hidden;
+        }
+        footer::before,
+        footer::after {
+            content: "";
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border: 2px solid rgba(255,255,255,0.35);
+            border-radius: 32px;
+            transform: rotate(-18deg);
+        }
+        footer::before {
+            top: -110px;
+            left: 60px;
+        }
+        footer::after {
+            bottom: -120px;
+            right: 80px;
+        }
+        footer p {
+            position: relative;
+            z-index: 1;
+            margin: 6px 0;
+        }
+        .note {
+            border-left: 4px solid var(--green-dark);
+            padding-left: 12px;
+            margin-top: 32px;
+            font-style: italic;
+            color: #3f3f3f;
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-content">
+            <p>Catalogue opérationnel</p>
+            <h1>Guide du Barrage Vert 2025 – 2026</h1>
+            <p>Accompagnement pas à pas pour créer et suivre une décision de financement.</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="stage" style="border-bottom:none; padding-top:0;">
+            <h2>Introduction</h2>
+            <p>Le <strong>Guide du Barrage Vert 2025 – 2026</strong> présente l’ensemble du flux opérationnel de gestion des décisions de financement et des appels d’offres associés. Il s’adresse aux équipes de la Direction générale des forêts, aux services financiers et aux partenaires institutionnels chargés de piloter la mise en œuvre du programme de réhabilitation.</p>
+            <p>Vous y trouverez des captures d’écran commentées, des recommandations pratiques et un rappel des documents réglementaires à mobiliser. Suivez les étapes dans l’ordre pour garantir la conformité budgétaire, la traçabilité documentaire et la coordination entre les acteurs.</p>
+        </section>
+
+        <section class="summary">
+            <h2>Résumé exécutif</h2>
+            <p>Ce guide présente les quinze écrans clés du module décision de financement du programme Barrage Vert. Il détaille le parcours utilisateur complet, de la connexion sécurisée jusqu’au suivi des appels d’offre et de leurs attributions.</p>
+            <ul>
+                <li><strong>01 – Connexion sécurisée</strong> : authentifiez-vous pour accéder aux modules.</li>
+                <li><strong>02 – Tableau de bord</strong> : retrouvez les raccourcis vers vos actions.</li>
+                <li><strong>03 – Synthèse de tranche</strong> : contrôlez les montants restants.</li>
+                <li><strong>04 – Détails de la tranche</strong> : analysez les enveloppes financières.</li>
+                <li><strong>05 – Décisions de financement</strong> : ouvrez la zone de consultation.</li>
+                <li><strong>06 – Liste consolidée</strong> : visualisez les décisions publiées.</li>
+                <li><strong>07 – Carte décision</strong> : analysez les informations clés d’une décision.</li>
+                <li><strong>08 – Nouvelle décision</strong> : lancez la création et joignez les pièces.</li>
+                <li><strong>09 – Formulaire de création</strong> : renseignez la décision et ajoutez les justificatifs.</li>
+                <li><strong>10 – Modification</strong> : ajustez une décision existante et mettez à jour la pièce jointe.</li>
+                <li><strong>11 – Appel d’offre</strong> : accédez aux documents contractuels.</li>
+                <li><strong>12 – Synthèse des appels d’offre</strong> : suivez l’exécution financière.</li>
+                <li><strong>13 – Nouveau lancement d’appel d’offre</strong> : créez un dossier d’appel d’offre.</li>
+                <li><strong>14 – Saisie de l’appel d’offre</strong> : complétez les informations et lots.</li>
+                <li><strong>15 – Mise à jour de l’appel d’offre</strong> : modifiez montants et pièces jointes.</li>
+            </ul>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header">
+                <span class="stage-number">01</span>
+                <h2>Authentification utilisateur</h2>
+            </div>
+            <p>L’écran de connexion (`01.login.png`) sécurise l’accès au système. Saisissez vos identifiants, puis validez pour rejoindre le tableau de bord.</p>
+            <figure>
+                <img src="01.login.png" alt="Écran de connexion">
+                <figcaption>Interface d’authentification pour accéder à la plateforme Barrage Vert.</figcaption>
+            </figure>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header">
+                <span class="stage-number">02</span>
+                <h2>Tableau de bord d’accueil</h2>
+            </div>
+            <p>Depuis l’accueil (`02.accueil.png`), accédez à la messagerie, aux programmes et à la bibliothèque des actions. Utilisez ce hub pour ouvrir le module Décisions financières et gérer vos notifications internes. Pensez à vérifier les alertes de validation ou les demandes de compléments avant de lancer une nouvelle démarche.</p>
+            <figure>
+                <img src="02.accueil.png" alt="Tableau de bord du programme">
+                <figcaption>Vue d’ensemble des fonctionnalités principales dès la connexion.</figcaption>
+            </figure>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header">
+                <span class="stage-number">03</span>
+                <h2>Synthèse financière de la tranche</h2>
+            </div>
+            <p>Le tableau de synthèse (`03.tranche2025.png`) récapitule les crédits ouverts, consommés et restants. Validez l’adéquation entre l’enveloppe disponible et le montant que vous comptez engager. Les colonnes de suivi permettent d’anticiper les besoins de réajustement budgétaire ou de réaffectation de crédits.</p>
+            <figure>
+                <img src="03.tranche2025.png" alt="Synthèse des crédits">
+                <figcaption>Tableau de bord des budgets par ligne et par wilaya.</figcaption>
+            </figure>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header">
+                <span class="stage-number">04</span>
+                <h2>Détail de la tranche 2025</h2>
+            </div>
+            <p>La vue détail (`04.detail-de-la-tranche-2025.png`) fournit la répartition annuelle des montants. Analysez les affectations par lot ou par nature de travaux pour préparer vos dossiers d’appel à consultation et justifier les montants dans les pièces administratives.</p>
+            <figure>
+                <img src="04.detail-de-la-tranche-2025.png" alt="Détail de la tranche 2025">
+                <figcaption>Les indicateurs de consommation budgétaire guident vos arbitrages.</figcaption>
+            </figure>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header">
+                <span class="stage-number">05</span>
+                <h2>Accès au module décision de financement</h2>
+            </div>
+            <p>La carte dédiée (`05.decision de financement.png`) ouvre la zone de consultation. Cliquez sur <em>Consulter</em> pour afficher les décisions existantes.</p>
+            <figure>
+                <img src="05.decision%20de%20financement.png" alt="Carte décision de financement">
+                <figcaption>Entrée rapide vers la gestion des décisions financières.</figcaption>
+            </figure>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header">
+                <span class="stage-number">06</span>
+                <h2>Liste consolidée des décisions</h2>
+            </div>
+            <p>La grille (`06.list -de-decision de-financement.png`) réunit toutes les décisions validées. Identifiez rapidement montants, dates, wilayas concernées et pièces jointes. Servez-vous des icônes latérales pour accéder aux documents ou déclencher une mise à jour sans quitter la vue consolidée.</p>
+            <figure>
+                <img src="06.list%20-de-decision%20de-financement.png" alt="Liste des décisions financières">
+                <figcaption>Actions disponibles : édition, duplication, suppression et téléchargements.</figcaption>
+            </figure>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header">
+                <span class="stage-number">07</span>
+                <h2>Carte décision détaillée</h2>
+            </div>
+            <p>Chaque carte (`10.carte-decision-financier.png`) synthétise les éléments principaux : nature de l’opération, date de validation, montant et wilaya concernée. Les boutons d’action permettent d’accéder directement aux pièces stratégiques. Utilisez-les pour préparer vos réunions de suivi et vérifier la cohérence des pièces contractuelles.</p>
+            <ul>
+                <li><strong>Lecture rapide</strong> : identifiez en un coup d’œil l’état de contractualisation et le montant engagé.</li>
+                <li><strong>Accès directs</strong> : utilisez les icônes pour éditer, supprimer, dupliquer ou consulter les documents associés.</li>
+            </ul>
+            <figure>
+                <img src="10.carte-decision-financier.png" alt="Carte décision financière">
+                <figcaption>La carte regroupe l’intégralité des informations opérationnelles d’une décision.</figcaption>
+            </figure>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header">
+                <span class="stage-number">08</span>
+                <h2>Création d’une nouvelle décision</h2>
+            </div>
+            <p>Utilisez le bouton (`07.bouton-nouvelle-decision-de-financement.png`) pour initier une décision. Complétez ensuite le formulaire et joignez les pièces requises. Informez vos équipes de la création en partageant le numéro de dossier généré.</p>
+            <p>Avant de poursuivre, assurez-vous que le dossier technique et financier a bien été validé par les parties prenantes internes. Le bouton de création ouvre une session contrôlée : toute saisie incomplète peut être sauvegardée en brouillon via les options du module.</p>
+            <figure>
+                <img src="07.bouton-nouvelle-decision-de-financement.png" alt="Bouton nouvelle décision">
+                <figcaption>Point d’entrée vers le formulaire de saisie d’une décision financière.</figcaption>
+            </figure>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header">
+                <span class="stage-number">09</span>
+                <h2>Saisir les informations de la décision</h2>
+            </div>
+            <p>La fenêtre <em>Ajouter une nouvelle décision financière</em> (`08.ajout-de-une-nouvelle-decision-de-financement.png`) recueille la date, le montant, l’intitulé de l’opération et la pièce jointe officielle. Profitez-en pour intégrer des notes internes ou références de projet si votre procédure l’impose.</p>
+            <ul>
+                <li><strong>Date</strong> : sélectionnez la date de validation via le sélecteur calendrier.</li>
+                <li><strong>Montant</strong> : indiquez le budget accordé en dinars algériens.</li>
+                <li><strong>Intitulé</strong> : décrivez précisément l’opération financée.</li>
+                <li><strong>Justificatif</strong> : téléversez le cahier des charges ou l’appel d’offres correspondant.</li>
+            </ul>
+            <p>Ce formulaire effectue une validation automatique des champs obligatoires. La pièce jointe peut être mise à jour ultérieurement, mais il est recommandé d’y intégrer immédiatement la version signée pour limiter les itérations.</p>
+            <p>Une fois l’ensemble des informations complété, utilisez le bouton <em>Ajouter</em>. Le système génère alors un numéro de dossier et alimente la liste consolidée pour permettre le suivi budgétaire.</p>
+            <figure>
+                <img src="08.ajout-de-une-nouvelle-decision-de-financement.png" alt="Formulaire d’ajout d’une décision">
+                <figcaption>Renseignez tous les champs requis avant de cliquer sur <em>Ajouter</em>.</figcaption>
+            </figure>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header">
+                <span class="stage-number">10</span>
+                <h2>Modifier une décision existante</h2>
+            </div>
+            <p>La fenêtre d’édition (`09.modifier-une-decision-de-finansement.png`) permet d’actualiser les valeurs ou de remplacer la pièce jointe si la décision évolue. Assurez-vous que les services financiers et juridiques sont informés de la modification pour maintenir les alignements budgétaires.</p>
+            <ul>
+                <li><strong>Mise à jour</strong> : ajustez la date, le montant ou l’intitulé selon les arbitrages.</li>
+                <li><strong>Pièce jointe</strong> : supprimez le fichier obsolète et importez la version révisée.</li>
+                <li><strong>Validation</strong> : cliquez sur <em>Modifier</em> pour enregistrer les changements.</li>
+            </ul>
+            <p>Toute modification laisse une trace dans l’historique des décisions. Veillez à consigner, dans la zone de commentaires du module, les motifs de l’ajustement pour favoriser la traçabilité et faciliter les audits ultérieurs.</p>
+            <p>Après validation, un contrôle rapide de la carte correspondante est recommandé afin de s’assurer que les nouveaux montants et documents ont bien été actualisés côté utilisateurs.</p>
+            <figure>
+                <img src="09.modifier-une-decision-de-finansement.png" alt="Formulaire de modification">
+                <figcaption>Contrôlez les informations avant validation pour garantir la traçabilité.</figcaption>
+            </figure>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header">
+                <span class="stage-number">11</span>
+                <h2>Consulter un appel d’offre</h2>
+            </div>
+            <p>Depuis la carte décision, le bouton (`11.boutton appel d'offre.png`) ouvre la liste des appels d’offre rattachés. Chaque document assure la conformité juridique de la procédure et peut être partagé avec les partenaires institutionnels.</p>
+            <ul>
+                <li><strong>Accès rapide</strong> : téléchargez le PDF d’appel d’offre en un clic.</li>
+                <li><strong>Suivi</strong> : contrôlez le statut (publié, partiellement validé, etc.).</li>
+            </ul>
+            <figure>
+                <img src="11.boutton appel d'offre.png" alt="Bouton appel d'offre">
+                <figcaption>Bouton d’accès aux appels d’offre liés à la décision sélectionnée.</figcaption>
+            </figure>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header">
+                <span class="stage-number">12</span>
+                <h2>Suivi des appels d’offre</h2>
+            </div>
+            <p>La vue consolidée (`12.list des appel d'offre de la desicion Beskra.png`) indique les dates clés, les montants consommés et le reliquat disponible. Elle est essentielle pour vérifier la conformité financière et planifier les lancements de nouveaux lots.</p>
+            <ul>
+                <li><strong>Analyse financière</strong> : comparez le montant attribué au budget initial.</li>
+                <li><strong>Gestion des lots</strong> : identifiez le nombre de lots et les dates de chaque étape.</li>
+                <li><strong>Traçabilité documentaire</strong> : accédez aux fichiers PDF et à la messagerie depuis cette vue.</li>
+            </ul>
+            <figure>
+                <img src="12.list des appel d'offre de la desicion Beskra.png" alt="Tableau des appels d'offre">
+                <figcaption>Tableau de synthèse pour piloter l’exécution des appels d’offre rattachés.</figcaption>
+            </figure>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header">
+                <span class="stage-number">13</span>
+                <h2>Lancer un nouvel appel d’offre</h2>
+            </div>
+            <p>Utilisez le bouton (`13.bouton vouvele appel d'offre.png`) pour créer un appel d’offre relié à la décision sélectionnée. Cette action ouvre un formulaire dédié aux informations réglementaires et déclenche la préparation des pièces pour la publication dans les quotidiens.</p>
+            <ul>
+                <li><strong>Pré-requis</strong> : vérifier les crédits disponibles et les validations internes.</li>
+                <li><strong>Traçabilité</strong> : chaque lancement est historisé pour audit ultérieur.</li>
+            </ul>
+            <figure>
+                <img src="13.bouton vouvele appel d'offre.png" alt="Bouton nouvel appel d'offre">
+                <figcaption>Bouton de déclenchement de la saisie d’un nouvel appel d’offre.</figcaption>
+            </figure>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header">
+                <span class="stage-number">14</span>
+                <h2>Renseigner un appel d’offre</h2>
+            </div>
+            <p>Le formulaire (`14.ajouter une nouvelles appel d'offre.png`) permet de saisir les dates clés, le numéro d’avis, le nombre de lots et le montant de l’ANEP. Il autorise également la pièce jointe officielle et l’ajout d’attributions. Renseignez le champ « État global » en cohérence avec les procès-verbaux de la commission d’évaluation.</p>
+            <ul>
+                <li><strong>Informations générales</strong> : dates de publication, de dépôt et numéro d’avis.</li>
+                <li><strong>Évaluation</strong> : définir l’état global et enregistrer les pièces d’évaluation.</li>
+                <li><strong>Attributions</strong> : ajouter les lots, l’entreprise attributaire et les montants correspondants.</li>
+            </ul>
+            <figure>
+                <img src="14.ajouter une nouvelles appel d'offre.png" alt="Formulaire d'ajout d'appel d'offre">
+                <figcaption>Interface complète pour créer un appel d’offre et ses attributions.</figcaption>
+            </figure>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header">
+                <span class="stage-number">15</span>
+                <h2>Modifier un appel d’offre</h2>
+            </div>
+            <p>La vue (`15.modifier une appel d'offre.png`) est dédiée aux mises à jour : dates ajustées, états des lots, montants attribués et remplacement des pièces jointes. Profitez de cet écran pour archiver les anciennes versions via la messagerie interne et notifier les opérateurs.</p>
+            <ul>
+                <li><strong>Ajustements</strong> : actualisez les montants attribués et les dates de dépouillement.</li>
+                <li><strong>Pièces</strong> : téléversez les PDF révisés des avis et des attributions.</li>
+                <li><strong>Lots</strong> : modifiez l’état lot par lot (validé, infructueux, etc.).</li>
+            </ul>
+            <figure>
+                <img src="15.modifier une appel d'offre.png" alt="Formulaire de modification d'appel d'offre">
+                <figcaption>Mise à jour détaillée des lots et des montants au sein d’un appel d’offre existant.</figcaption>
+            </figure>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header">
+                <span class="stage-number">16</span>
+                <h2>Synthèse des documents d’appel à consultation</h2>
+            </div>
+            <p>Les dossiers PDF fournis (« Appel d’offre », « Attribution », « Décision ») constituent la base réglementaire pour engager les consultations auprès des entreprises forestières. Ils s’alignent sur le décret présidentiel n°15-247 et servent de référence pour tout audit.</p>
+            <ul>
+                <li><strong>Avis d’appel d’offres</strong> : détaille les lots (plantations, correction torrentielle), les conditions d’éligibilité (code 101-103), les contenus des trois plis (candidature, offre technique, offre financière) et les délais de dépôt.</li>
+                <li><strong>Attribution provisoire</strong> : récapitule les entreprises retenues, montants TTC, délais d’exécution et voies de recours conformément au décret présidentiel n°15-247.</li>
+                <li><strong>Documents décisionnels</strong> : comprennent le bon de commande et les mentions légales de la Conservation des Forêts de Biskra pour l’exécution des travaux.</li>
+            </ul>
+            <p>Chaque nouvelle consultation doit s’appuyer sur ces modèles pour garantir la conformité juridique et la transparence des procédures.</p>
+        </section>
+
+        <div class="note">Pour formaliser vos démarches, générez systématiquement la version PDF du guide et rattachez-la à votre documentation projet.</div>
+    </main>
+
+    <footer>
+        <p>Programme Barrage Vert • Direction Générale des Forêts</p>
+        <p>Edition 2025 – 2026</p>
+    </footer>
+</body>
+</html>
