@@ -1,0 +1,1764 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide pratique - Barrage Vert</title>
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#0b6a36',
+                            light: '#1a936f',
+                            lighter: '#8ad17f',
+                            lightest: '#e8f5e9'
+                        },
+                        secondary: {
+                            DEFAULT: '#2c3e50',
+                            light: '#34495e'
+                        },
+                        accent: {
+                            DEFAULT: '#3498db',
+                            light: '#5dade2'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Segoe UI', 'Arial', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'card': '0 2px 4px rgba(0,0,0,0.1)',
+                        'card-hover': '0 4px 8px rgba(0,0,0,0.15)'
+                    }
+                }
+            },
+            plugins: [
+                function({ addComponents }) {
+                    addComponents({
+                        '.container': {
+                            maxWidth: '100%',
+                            '@screen sm': {
+                                maxWidth: '640px',
+                            },
+                            '@screen md': {
+                                maxWidth: '768px',
+                            },
+                            '@screen lg': {
+                                maxWidth: '1024px',
+                            },
+                            '@screen xl': {
+                                maxWidth: '1200px',
+                            },
+                        },
+                        '.section': {
+                            padding: '2rem 1rem',
+                            '@screen md': {
+                                padding: '3rem 1.5rem',
+                            },
+                            '@screen lg': {
+                                padding: '4rem 2rem',
+                            },
+                        },
+                    });
+                },
+            ],
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer components {
+            .btn {
+                @apply px-4 py-2 rounded-md font-medium transition-colors duration-200;
+            }
+            .btn-primary {
+                @apply bg-primary text-white hover:bg-primary-light;
+            }
+            .btn-outline {
+                @apply border border-primary text-primary hover:bg-primary hover:text-white;
+            }
+            .card {
+                @apply bg-white rounded-lg shadow-card p-6 transition-all duration-200 hover:shadow-card-hover;
+            }
+            .badge {
+                @apply inline-flex items-center justify-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+            }
+            .badge-primary {
+                @apply bg-primary-lightest text-primary;
+            }
+            .badge-secondary {
+                @apply bg-gray-100 text-gray-700;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800 leading-relaxed">
+    <header class="relative bg-gradient-to-r from-primary to-primary-dark text-white overflow-hidden">
+        <!-- Decorative elements -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgcGF0dGVyblRyYW5zZm9ybT0icm90YXRlKDQ1KSI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjUwIiBoZWlnaHQ9IjUwIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMSIgc3Ryb2tlLW9wYWNpdHk9IjAuMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==')]"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 py-16 md:py-24 lg:py-32 relative z-10">
+            <!-- Badge -->
+            <div class="inline-flex items-center bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6 border border-white/20">
+                <span class="text-sm md:text-base font-bold uppercase tracking-wider">
+                    <i class="pi pi-book mr-2"></i>
+                    Catalogue Opérationnel
+                </span>
+            </div>
+            
+            <!-- Main Title -->
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight max-w-4xl mx-auto">
+                Guide du Barrage Vert
+                <span class="block text-2xl md:text-3xl font-light mt-3">2025 – 2026</span>
+            </h1>
+            
+            <!-- Subtitle -->
+            <div class="max-w-2xl mx-auto">
+                <p class="text-lg md:text-xl opacity-90 mb-8">
+                    <span class="inline-flex items-center bg-white/10 backdrop-blur-sm px-4 py-3 rounded-lg border border-white/20">
+                        <i class="pi pi-arrow-right mr-3 text-primary-lighter"></i>
+                        Accompagnement pas à pas pour créer et suivre une décision de financement
+                    </span>
+                </p>
+                
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#sommaire" class="inline-flex items-center justify-center px-6 py-3 bg-white text-primary font-semibold rounded-lg hover:bg-gray-100 transition-colors shadow-lg hover:shadow-xl">
+                        <i class="pi pi-book-open mr-2"></i>
+                        Parcourir le guide
+                    </a>
+                    <a href="#contact" class="inline-flex items-center justify-center px-6 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-colors">
+                        <i class="pi pi-envelope mr-2"></i>
+                        Nous contacter
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Wave divider -->
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="w-full h-16 md:h-24">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#ffffff"></path>
+            </svg>
+        </div>
+    </header>
+
+    <main class="py-8 md:py-12">
+        <div class="container mx-auto px-4">
+            <div class="card mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-primary mb-4 border-b pb-2">Structure Étendue et Sommaire Détaillé</h2>
+                <p class="text-gray-700 mb-6">Le guide est organisé de manière séquentielle, suivant le cycle de vie complet d'un projet.</p>
+                
+                <div class="mb-8 p-6 bg-gray-50 rounded-lg border-l-4 border-primary">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Partie 1 : Accès et Vue d'Ensemble (Écrans 01–04)</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors">
+                            <div class="flex items-start space-x-3">
+                                <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">01</span>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Connexion sécurisée</h4>
+                                    <p class="text-sm text-gray-600 mt-1">Porte d'entrée authentifiée vers la plateforme.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors">
+                            <div class="flex items-start space-x-3">
+                                <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">02</span>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Tableau de bord d'accueil</h4>
+                                    <p class="text-sm text-gray-600 mt-1">Hub central vers modules, messagerie, bibliothèque et alertes.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors">
+                            <div class="flex items-start space-x-3">
+                                <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">03</span>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Synthèse de la tranche</h4>
+                                    <p class="text-sm text-gray-600 mt-1">Vue agrégée des crédits ouverts, consommés et restants.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors">
+                            <div class="flex items-start space-x-3">
+                                <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">04</span>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Détail de la tranche</h4>
+                                    <p class="text-sm text-gray-600 mt-1">Répartition des budgets par travaux, lots ou wilayas.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-8 p-6 bg-gray-50 rounded-lg border-l-4 border-primary">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Partie 2 : Gestion des Décisions de Financement (Écrans 05–10)</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors">
+                            <div class="flex items-start space-x-3">
+                                <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">05</span>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Accès au module</h4>
+                                    <p class="text-sm text-gray-600 mt-1">Navigation vers l'interface de gestion des décisions.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors">
+                            <div class="flex items-start space-x-3">
+                                <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">06</span>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Liste consolidée des décisions</h4>
+                                    <p class="text-sm text-gray-600 mt-1">Vue tabulaire des décisions validées avec actions rapides.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors">
+                            <div class="flex items-start space-x-3">
+                                <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">07</span>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Carte décision détaillée</h4>
+                                    <p class="text-sm text-gray-600 mt-1">Fiche synthétique par décision.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors">
+                            <div class="flex items-start space-x-3">
+                                <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">08</span>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Lancement d'une nouvelle décision</h4>
+                                    <p class="text-sm text-gray-600 mt-1">Point d'entrée pour initier une décision.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors md:col-span-2">
+                            <div class="flex items-start space-x-3">
+                                <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">09</span>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Formulaire de création</h4>
+                                    <p class="text-sm text-gray-600 mt-1">Saisie des informations obligatoires et de la pièce signée.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors md:col-span-2">
+                            <div class="flex items-start space-x-3">
+                                <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">10</span>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Modification d'une décision</h4>
+                                    <p class="text-sm text-gray-600 mt-1">Ajustements avec traçabilité des changements.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <div class="mb-8 p-6 bg-gray-50 rounded-lg border-l-4 border-primary">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Partie 3 : Mise en Œuvre Contractuelle – Appels d'Offres (Écrans 11–16)</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors">
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">11</span>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Consultation des appels d'offre</h4>
+                                <p class="text-sm text-gray-600 mt-1">Accès aux AO liés à une décision.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors">
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">12</span>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Synthèse des appels d'offre</h4>
+                                <p class="text-sm text-gray-600 mt-1">Suivi financier et temporel des AO.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors">
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">13</span>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Lancement d'un nouvel AO</h4>
+                                <p class="text-sm text-gray-600 mt-1">Création d'un dossier d'appel d'offres.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors">
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">14</span>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Saisie d'un appel d'offre</h4>
+                                <p class="text-sm text-gray-600 mt-1">Formulaire réglementaire détaillé.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors md:col-span-2">
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">15</span>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Modification d'un AO</h4>
+                                <p class="text-sm text-gray-600 mt-1">Mise à jour des informations, lots et pièces.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors md:col-span-2">
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">16</span>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Cahier des charges</h4>
+                                <p class="text-sm text-gray-600 mt-1">Formalisation du cahier des charges signé.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-8 p-6 bg-gray-50 rounded-lg border-l-4 border-primary">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Partie 4 : Exécution et Suivi – Gestion des Contrats (Écrans 17–22)</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors">
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">17</span>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Liste des contrats</h4>
+                                <p class="text-sm text-gray-600 mt-1">Vue centrale des contrats signés.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors">
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">18</span>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Ajout/filtrage d'un contrat</h4>
+                                <p class="text-sm text-gray-600 mt-1">Création ou recherche ciblée.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors">
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">19</span>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Fiche contrat</h4>
+                                <p class="text-sm text-gray-600 mt-1">Carte récapitulative d'un contrat.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors">
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">20</span>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Formulaire contrat</h4>
+                                <p class="text-sm text-gray-600 mt-1">Saisie exhaustive des données contractuelles.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors md:col-span-2">
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">21</span>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Modification d'un contrat</h4>
+                                <p class="text-sm text-gray-600 mt-1">Mise à jour des clauses, montants et documents.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors md:col-span-2">
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">22</span>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Cahier des prescriptions techniques</h4>
+                                <p class="text-sm text-gray-600 mt-1">Archivage et liaison du CPT signé.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-8 p-6 bg-gray-50 rounded-lg border-l-4 border-primary">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Partie 5 : Gestion des Modifications et Clôture (Écrans 23–27)</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors">
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">23</span>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Synthèse documentaire</h4>
+                                <p class="text-sm text-gray-600 mt-1">Modèles réglementaires (avis, attribution, décision).</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors">
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">24</span>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Checklist finale</h4>
+                                <p class="text-sm text-gray-600 mt-1">Contrôle de clôture administrative.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors">
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">25</span>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Liste des avenants</h4>
+                                <p class="text-sm text-gray-600 mt-1">Visibilité sur les avenants et montants additionnels.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors">
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">26</span>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Ajout d'un avenant</h4>
+                                <p class="text-sm text-gray-600 mt-1">Enregistrement du motif, montant et pièces.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors md:col-span-2">
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">27</span>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Actions impactées</h4>
+                                <p class="text-sm text-gray-600 mt-1">Analyse des lignes budgétaires affectées.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-8 p-6 bg-gray-50 rounded-lg border-l-4 border-primary">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Partie 6 : Ressources et Référentiels (Écrans 28–29)</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors">
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">28</span>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Annexes et bonnes pratiques</h4>
+                                <p class="text-sm text-gray-600 mt-1">Références réglementaires, modèles, conseils GED.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors">
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">29</span>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Glossaire</h4>
+                                <p class="text-sm text-gray-600 mt-1">Définitions des acronymes et vocabulaire partagé.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-8 p-6 bg-gray-50 rounded-lg border-l-4 border-primary">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Partie 7 : Suivi et Gestion de Projet (Écrans 30–34)</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors">
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">30</span>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Tableau de bord de suivi</h4>
+                                <p class="text-sm text-gray-600 mt-1">Indicateurs clés et alertes projet.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors">
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">31</span>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Gestion des rapports d'avancement</h4>
+                                <p class="text-sm text-gray-600 mt-1">Génération et partage des rapports.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors">
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">32</span>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Registre des risques</h4>
+                                <p class="text-sm text-gray-600 mt-1">Identification et évaluation des risques.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors">
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">33</span>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Suivi des actions correctives</h4>
+                                <p class="text-sm text-gray-600 mt-1">Gestion des mesures préventives et correctives.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors md:col-span-2">
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">34</span>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Checklist de clôture</h4>
+                                <p class="text-sm text-gray-600 mt-1">Validation des livrables et documentation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-8 p-6 bg-gray-50 rounded-lg border-l-4 border-primary">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Partie 8 : Analyse et Optimisation (Écrans 35–38)</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors">
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">35</span>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Tableaux de bord financiers</h4>
+                                <p class="text-sm text-gray-600 mt-1">Suivi budgétaire et analyse des coûts.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors">
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">36</span>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Indicateurs de performance</h4>
+                                <p class="text-sm text-gray-600 mt-1">KPI et analyse des tendances.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors">
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">37</span>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Centre de formation</h4>
+                                <p class="text-sm text-gray-600 mt-1">Ressources pédagogiques et tutoriels.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors">
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">38</span>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Support utilisateur</h4>
+                                <p class="text-sm text-gray-600 mt-1">Gestion des demandes d'assistance.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-8 p-6 bg-gray-50 rounded-lg border-l-4 border-primary">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Partie 9 : Gestion des Utilisateurs (Écrans 39–41)</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors">
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">39</span>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Gestion des utilisateurs</h4>
+                                <p class="text-sm text-gray-600 mt-1">Administration des comptes, rôles et permissions.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors">
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">40</span>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Gestion des accès</h4>
+                                <p class="text-sm text-gray-600 mt-1">Configuration des droits et habilitations.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors">
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">41</span>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Journal d'activité</h4>
+                                <p class="text-sm text-gray-600 mt-1">Suivi des actions des utilisateurs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-8 p-6 bg-gray-50 rounded-lg border-l-4 border-primary">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Partie 10 : Suivi Stratégique et Indicateurs de Résultats (Écrans 44-46)</h3>
+                <p class="text-gray-700 mb-6">Cette section fait le pont entre les données opérationnelles et les objectifs stratégiques écologiques du programme, allant au-delà du simple suivi financier.</p>
+                
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white rounded-lg overflow-hidden">
+                        <thead class="bg-primary text-white">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Écran & Titre</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Objectif Principal</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Contenu Proposé & Indicateurs Clés (KPI)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-6 py-4 whitespace-normal">
+                                    <span class="font-semibold text-gray-900">44 – Tableau de Bord Environnemental</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-normal">Suivre l'impact écologique direct des travaux.</td>
+                                <td class="px-6 py-4 whitespace-normal text-sm text-gray-600">
+                                    <p class="font-medium">KPI :</p>
+                                    <ul class="list-disc pl-5 mt-1 space-y-1">
+                                        <li>Surfaces reboisées (ha)</li>
+                                        <li>Taux de survie des plants (%)</li>
+                                        <li>Nombre de points d'eau créés/réhabilités</li>
+                                        <li>Indices de biodiversité</li>
+                                    </ul>
+                                    <p class="mt-2">Visualisation cartographique des réalisations.</p>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-6 py-4 whitespace-normal">
+                                    <span class="font-semibold text-gray-900">45 – Indicateurs Socio-économiques</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-normal">Mesurer les retombées du projet sur les communautés locales.</td>
+                                <td class="px-6 py-4 whitespace-normal text-sm text-gray-600">
+                                    <p class="font-medium">KPI :</p>
+                                    <ul class="list-disc pl-5 mt-1 space-y-1">
+                                        <li>Jours-emploi générés</li>
+                                        <li>Nombre d'entreprises locales mobilisées</li>
+                                        <li>Formations dispensées aux populations</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-6 py-4 whitespace-normal">
+                                    <span class="font-semibold text-gray-900">46 – Rapport de Synthèse Annuel</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-normal">Consolider les données pour le reporting ministériel et l'évaluation du programme.</td>
+                                <td class="px-6 py-4 whitespace-normal text-sm text-gray-600">
+                                    <p>Modèle structuré intégrant données financières (de la Partie 8), opérationnelles et de résultats.</p>
+                                    <p class="mt-2">Liaison avec les écrans 30 et 35.</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="mb-8 p-6 bg-gray-50 rounded-lg border-l-4 border-primary">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Partie 11 : Annexes Techniques (Écrans 47–48)</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors">
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">47</span>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Glossaire technique</h4>
+                                <p class="text-sm text-gray-600 mt-1">Définitions et terminologie avancée.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg border border-gray-200 hover:border-primary transition-colors">
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 bg-primary-lightest text-primary font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm">48</span>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Index thématique</h4>
+                                <p class="text-sm text-gray-600 mt-1">Accès rapide à l'ensemble du contenu.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-8 p-6 bg-white rounded-lg shadow-sm border border-gray-100">
+                <p class="text-gray-700 mb-6">Ce guide constitue le socle de gouvernance du Programme Barrage Vert : son appropriation collective garantit la rigueur, la transparence et l'efficacité de la dépense publique.</p>
+                
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Navigation par Rôle Utilisateur</h3>
+                <p class="text-gray-700 mb-6">Pour faciliter l'accès aux informations les plus pertinentes, consultez les écrans clés selon votre rôle :</p>
+                
+                <div class="overflow-x-auto mb-8">
+                    <table class="min-w-full bg-white rounded-lg overflow-hidden">
+                        <thead class="bg-primary text-white">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Rôle Utilisateur</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Objectifs Principaux</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Écrans Clés à Consulter</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-6 py-4 whitespace-normal">
+                                    <span class="font-semibold text-gray-900">Chef de Projet Opérationnel (DGF)</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-normal text-gray-700">Piloter l'exécution technique et physique</td>
+                                <td class="px-6 py-4 whitespace-normal text-gray-700">03, 04, 19 (Fiche Contrat), 30 (Tableau de bord suivi), 44 (Tableau de bord env.)</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-6 py-4 whitespace-normal">
+                                    <span class="font-semibold text-gray-900">Gestionnaire Financier</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-normal text-gray-700">Garantir l'engagement et la dépense régulière des crédits</td>
+                                <td class="px-6 py-4 whitespace-normal text-gray-700">03, 04, 06, 12, 17, 35 (Tableaux financiers)</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-6 py-4 whitespace-normal">
+                                    <span class="font-semibold text-gray-900">Agent des Marchés Publics</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-normal text-gray-700">Assurer la régularité des consultations et contrats</td>
+                                <td class="px-6 py-4 whitespace-normal text-gray-700">11 à 16 (Module AO), 20, 21, 23 (Synthèse doc.)</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-6 py-4 whitespace-normal">
+                                    <span class="font-semibold text-gray-900">Administrateur Système</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-normal text-gray-700">Gérer les accès et la maintenance de la plateforme</td>
+                                <td class="px-6 py-4 whitespace-normal text-gray-700">01, 39, 40, 41 (Gestion des utilisateurs et accès)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="mt-8 p-6 bg-gray-50 rounded-lg border-l-4 border-primary">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-3">Outils Pratiques</h4>
+                    <p class="text-gray-700 mb-4">Les modèles suivants sont disponibles en annexe (Écran 28) :</p>
+                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                        <li>Modèles de documents contractuels</li>
+                        <li>Grilles d'analyse des offres</li>
+                        <li>Fiches de suivi de projet</li>
+                        <li>Modèles de rapports d'avancement</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mb-8 p-6 bg-white rounded-lg shadow-sm border border-gray-100">
+                <h4 class="text-lg font-semibold text-gray-800 mb-4">Modèles et Documents Utiles</h4>
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 w-2 h-2 bg-primary rounded-full mt-2 mr-2"></span>
+                        <span class="text-gray-700"><strong class="text-gray-900">Fiche de Calcul Budgétaire Prévisionnel</strong> : Modèle pour préparer les montants des décisions de financement (lien avec l'écran 09).</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 w-2 h-2 bg-primary rounded-full mt-2 mr-2"></span>
+                        <span class="text-gray-700"><strong class="text-gray-900">Checklist de Constitution d'un Dossier d'Appel d'Offres</strong> : Liste de contrôle exhaustive des pièces réglementaires pour les écrans 13-16.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 w-2 h-2 bg-primary rounded-full mt-2 mr-2"></span>
+                        <span class="text-gray-700"><strong class="text-gray-900">Modèle de PV de Réception des Travaux</strong> : Document standard pour acter la clôture technique d'un lot, à archiver avec le contrat (écrans 21, 34).</span>
+                    </li>
+                </ul>
+                
+                <h4 class="text-lg font-semibold text-gray-800 mt-8 mb-4">Bonnes Pratiques Complémentaires</h4>
+                <ul class="space-y-4">
+                    <li class="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-400">
+                        <h5 class="font-semibold text-gray-800 mb-1">Pour le Suivi des Risques (Écran 31)</h5>
+                        <p class="text-gray-700">Utilisez la matrice de probabilité/impact standardisée et consultez les exemples de risques spécifiques au Barrage Vert (ex.: sécheresse, mortalité des plants).</p>
+                    </li>
+                    <li class="p-4 bg-green-50 rounded-lg border-l-4 border-green-400">
+                        <h5 class="font-semibold text-gray-800 mb-1">Pour le Centre de Formation (Écran 37)</h5>
+                        <p class="text-gray-700">Consultez les études de cas basées sur des projets réels, comme la tranche 2023, pour illustrer les procédures.</p>
+                    </li>
+            </ul>
+        </section>
+
+        <section class="py-12 bg-gradient-to-b from-gray-50 to-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Introduction Élargie : Guide Pratique</h2>
+                        <div class="w-24 h-1 bg-primary mx-auto rounded-full"></div>
+                    </div>
+                    
+                    <div class="prose prose-lg max-w-none">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Contexte Stratégique et Portée du Guide</h3>
+                        <div class="space-y-6 text-gray-700 leading-relaxed">
+                            <p>Dans un contexte national où la lutte contre la désertification, la préservation des écosystèmes et la résilience climatique constituent des impératifs stratégiques, le <strong class="text-primary">Programme Barrage Vert (2025-2026)</strong> s'inscrit comme une priorité présidentielle et un projet structurant de première importance. Lancée officiellement par le Président de la République, Abdelmadjid Tebboune, en octobre 2023, la réhabilitation de ce <em class="text-gray-800 font-medium">"rempart vert"</em> traverse 13 wilayas et ambitionne de recréer un patrimoine forestier durable sur des milliers d'hectares.</p>
+                            
+                            <div class="p-6 bg-white rounded-xl shadow-sm border border-gray-100">
+                                <p class="mb-0">L'ambition est immense : plus d'un million de plants à planter lors de la prochaine campagne nationale de reboisement, s'ajoutant aux <strong class="text-primary">29 000 hectares déjà plantés en 2023 et 2024</strong>. Cette dynamique s'appuie sur une enveloppe financière significative, avec <strong class="text-primary">75 millions de dinars mobilisés pour la période 2023-2030</strong>, et une mobilisation interministérielle sans précédent impliquant le GGR, le BNEDER et le HCDS.</p>
+                            </div>
+                            
+                            <p>La feuille de route est claire : atteindre la norme internationale de <strong class="text-primary">16% de couverture forestière</strong> pour le Nord du pays, contre 11% aujourd'hui.</p>
+                            
+                            <div class="p-6 bg-blue-50 rounded-xl border-l-4 border-blue-400">
+                                <p class="mb-0 font-medium text-gray-800">Dans ce cadre d'accélération opérationnelle et d'engagement financier majeur, la nécessité d'une <strong class="text-blue-700">gestion rigoureuse, transparente et traçable</strong> des fonds publics devient absolument critique. Chaque décision de financement, chaque appel d'offres, chaque contrat signé doit non seulement respecter scrupuleusement le cadre légal – notamment le <strong class="text-blue-700">décret présidentiel n°15-247</strong> – mais aussi garantir que chaque dinar investi serve efficacement l'objectif final : la réhabilitation effective du territoire.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+            <p>C'est précisément dans cette optique que s'inscrit le présent <strong>Guide Pratique</strong>. Il constitue le <strong>manuel opérationnel de référence</strong> pour tous les acteurs chargés de concrétiser cette ambition sur le terrain. Il est conçu pour transformer un enjeu administratif complexe – la gestion financière et contractuelle d'un projet d'envergure – en un processus fluide, sécurisé et standardisé, depuis l'engagement budgétaire initial jusqu'à la réception des travaux.</p>
+            
+            <h3>Public Cible et Objectifs Opérationnels</h3>
+            <p>Ce guide s'adresse à <strong>l'écosystème complet des acteurs</strong> du Barrage Vert :</p>
+            <ul>
+                <li>Les équipes techniques et opérationnelles de la Direction Générale des Forêts (DGF), pilotes du programme.</li>
+                <li>Les services financiers et comptables, garants de la régularité budgétaire.</li>
+                <li>Les divisions marchés publics, responsables de la conformité des procédures de passation.</li>
+                <li>Les partenaires institutionnels (GGR, BNEDER, HCDS) et les administrations locales des wilayas concernées.</li>
+                <li>Les chefs de projet et responsables opérationnels sur le terrain.</li>
+                <li>Les équipes de contrôle et d'audit.</li>
+            </ul>
+            <p>Ses objectifs opérationnels sont multiples :</p>
+            <ol>
+                <li><strong>Sécuriser le cycle complet de la dépense publique</strong> : Assurer que chaque phase – de l'authentification budgétaire à la clôture administrative – soit documentée, contrôlée et irréprochable, avec une attention particulière à la conformité réglementaire.</li>
+                <li><strong>Garantir une exécution coordonnée et efficace</strong> : Briser les silos entre services en offrant une plateforme unique d'information et d'action, accélérant ainsi la mise en œuvre des projets sur le terrain tout en maintenant la qualité des interventions.</li>
+                <li><strong>Construire une traçabilité infaillible pour l'audit et le pilotage</strong> : Fournir en temps réel une vision consolidée de l'engagement des crédits, de l'état d'avancement des marchés, de la consommation physique des enveloppes et des performances environnementales, outil indispensable pour le ministre de tutelle et les décideurs.</li>
+                <li><strong>Faciliter la montée en compétence des équipes</strong> : Offrir un outil de formation et de référence permanent, réduisant les erreurs procédurales et améliorant l'efficacité opérationnelle.</li>
+                <li><strong>Anticiper et gérer les risques</strong> : Mettre en place une méthodologie structurée pour l'identification, l'évaluation et le traitement des risques techniques, financiers et environnementaux.</li>
+            </ol>
+            
+            <h3>Philosophie et Principes Directeurs : La Rigueur au Service de l'Ambition</h3>
+            <p>Le guide se positionne bien au-delà d'une simple notice technique. Il est le <strong>compagnon numérique interactif</strong> qui incarne une nouvelle philosophie de gestion de projet public, fondée sur les principes suivants :</p>
+            <ul>
+                <li><strong>Traçabilité intégrale</strong> : chaque action (création, modification, attribution) est historisée, créant une piste d’audit fiable.</li>
+                <li><strong>Sécurisation documentaire</strong> : l’archivage électronique systématique des pièces justificatives signées est central.</li>
+                <li><strong>Coordination centralisée</strong> : la plateforme sert de hub unique pour l’information, brisant les silos entre services.</li>
+                <li><strong>Contrôle budgétaire en temps réel</strong> : la visualisation des enveloppes, crédits engagés et reliquats permet des arbitrages éclairés.</li>
+        <section class="stage" id="authentification">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">01</span>
+                <h2>Authentification utilisateur</h2>
+            </div>
+            <blockquote class="proverb">
+                <p>« La confiance est bonne, le contrôle est meilleur. »<br><em>Proverbe africain</em></p>
+            </blockquote>
+            <p>L'accès à la plateforme Barrage Vert commence par une authentification sécurisée via l'écran de connexion. Cette étape garantit la confidentialité et la sécurité des données sensibles. Une fois authentifié, vous pourrez accéder à votre tableau de bord personnalisé (voir section <a href="#tableau-de-bord">Tableau de bord d'accueil</a>).</p>
+            
+            <h3>Procédure de connexion :</h3>
+            <ol>
+                <li>Ouvrez votre navigateur et accédez à l'URL du portail Barrage Vert</li>
+                <li>Dans les champs prévus à cet effet :
+                    <ul>
+                        <li><strong>Nom d'utilisateur</strong> : Saisissez votre adresse email professionnelle</li>
+                        <li><strong>Mot de passe</strong> : Entrez votre mot de passe (attention à la casse)</li>
+                    </ul>
+                </li>
+                <li>Cliquez sur le bouton <strong>Se connecter</strong> pour accéder à votre espace</li>
+            </ol>
+
+            <div class="note important">
+                <h4>Bonnes pratiques de sécurité :</h4>
+                <ul>
+                    <li>Ne partagez jamais vos identifiants de connexion</li>
+                    <li>Changez votre mot de passe régulièrement (tous les 90 jours recommandé)</li>
+                    <li>Utilisez un mot de passe complexe (majuscules, minuscules, chiffres et caractères spéciaux)</li>
+                    <li>Déconnectez-vous toujours après utilisation, surtout sur les ordinateurs partagés</li>
+                </ul>
+            </div>
+
+            <h3>En cas de problème :</h3>
+            <ul>
+                <li><strong>Mot de passe oublié</strong> : Cliquez sur "Mot de passe oublié ?" pour le réinitialiser</li>
+                <li><strong>Compte bloqué</strong> : Contactez l'administrateur système après 3 tentatives échouées</li>
+                <li><strong>Problème technique persistant</strong> : Contactez le support technique à support@barragevert.dz</li>
+            </ul>
+
+            <figure>
+                <img src="section-appel-offre/01.login.png" alt="Écran de connexion - Plateforme Barrage Vert">
+                <figcaption>Interface d'authentification sécurisée pour accéder à la plateforme Barrage Vert.</figcaption>
+            </figure>
+
+            <div class="note tip">
+                <h4>Astuce :</h4>
+                <p>Cochez la case "Se souvenir de moi" uniquement sur votre ordinateur personnel pour éviter de devoir vous reconnecter à chaque visite.</p>
+            </div>
+        </section>
+
+
+        <section class="stage" id="tableau-de-bord">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">03</span>
+                <h2>Tableau de bord d'accueil</h2>
+            </div>
+            <blockquote class="proverb">
+                <p>« Un bon départ est la moitié du chemin. »<br><em>Proverbe chinois</em></p>
+            </blockquote>
+            <p>Depuis l'accueil (`section-appel-offre/02.accueil.png`), accédez à la messagerie, aux programmes et à la bibliothèque des actions. Utilisez ce hub pour ouvrir le module <a href="#module-decisions-financieres">Décisions financières</a> et gérer vos notifications internes. Pensez à vérifier les alertes de validation ou les demandes de compléments avant de lancer une nouvelle démarche.</p>
+            <figure>
+                <img src="section-appel-offre/02.accueil.png" alt="Tableau de bord du programme">
+                <figcaption>Vue d’ensemble des fonctionnalités principales dès la connexion.</figcaption>
+            </figure>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">04</span>
+                    <h2 class="text-3xl font-bold text-green-800">Gestion des utilisateurs</h2>
+                </div>
+            </div>
+            <blockquote class="proverb">
+                <p>« Seul on va plus vite, ensemble on va plus loin. »<br><em>Proverbe africain</em></p>
+            </blockquote>
+            <p>L'écran de gestion des utilisateurs (`section-contrats/29.list utilisateur.png`) permet aux administrateurs de gérer les accès et les rôles des différents utilisateurs de la plateforme Barrage Vert. Cette section est accessible uniquement aux utilisateurs disposant des droits d'administration (voir <a href="#authentification">Authentification utilisateur</a> pour plus de détails sur les droits d'accès).</p>
+            
+            <h3>Fonctionnalités principales :</h3>
+            <ul>
+                <li><strong>Liste des utilisateurs</strong> : Vue d'ensemble de tous les comptes utilisateurs</li>
+                <li><strong>Filtrage et recherche</strong> : Trouvez rapidement un utilisateur spécifique</li>
+                <li><strong>Statuts</strong> : Visualisez l'état de chaque compte (actif, inactif, verrouillé)</li>
+                <li><strong>Rôles et permissions</strong> : Gestion des droits d'accès</li>
+            </ul>
+
+            <h3>Actions disponibles :</h3>
+            <div class="grid-2col">
+                <div class="action-card">
+                    <h4>Ajouter un utilisateur</h4>
+                    <ol>
+                        <li>Cliquez sur le bouton "Nouvel utilisateur"</li>
+                        <li>Remplissez les informations requises (nom, email, service, etc.)</li>
+                        <li>Définissez le(s) rôle(s) approprié(s)</li>
+                        <li>Générez un mot de passe temporaire</li>
+                    </ol>
+                </div>
+                <div class="action-card">
+                    <h4>Modifier un utilisateur</h4>
+                    <ol>
+                        <li>Dans la liste des utilisateurs, localisez l'utilisateur concerné</li>
+                        <li>Cliquez sur l'icône de modification (crayon) dans la ligne correspondante</li>
+                        <li>Dans le formulaire de modification (`section-contrats/30.modifiy user.png`), mettez à jour :
+                            <ul>
+                                <li>Les informations personnelles (nom, prénom, email, etc.)</li>
+                                <li>Le service ou département</li>
+                                <li>Le statut du compte (actif/inactif)</li>
+                            </ul>
+                        </li>
+                        <li>Si nécessaire, modifiez les rôles et permissions</li>
+                        <li>Vérifiez les informations modifiées</li>
+                        <li>Cliquez sur "Enregistrer" pour valider les modifications</li>
+                    </ol>
+                    <div class="note tip">
+                        <p><strong>Astuce :</strong> Utilisez le bouton "Réinitialiser le mot de passe" si l'utilisateur a oublié son mot de passe. Un lien de réinitialisation lui sera envoyé par email.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="note important">
+                <h4>Bonnes pratiques :</h4>
+                <ul>
+                    <li>Vérifiez régulièrement la liste des utilisateurs actifs</li>
+                    <li>Désactivez les comptes inutilisés</li>
+                    <li>Appliquez le principe du moindre privilège pour les droits d'accès</li>
+                    <li>Documentez les changements de rôles importants</li>
+                </ul>
+            </div>
+
+            <h3>Détails de la modification d'un utilisateur</h3>
+            <p>L'écran de modification d'utilisateur offre un contrôle précis sur les paramètres du compte :</p>
+            <ul>
+                <li><strong>Informations de base</strong> : Nom, prénom, email, téléphone</li>
+                <li><strong>Paramètres de compte</strong> : Statut, date d'expiration</li>
+                <li><strong>Rôles et permissions</strong> : Attribution des droits d'accès</li>
+                <li><strong>Historique des modifications</strong> : Suivi des changements</li>
+            </ul>
+
+            <div class="grid-2col">
+                <figure>
+                    <img src="section-contrats/29.list utilisateur.png" alt="Liste des utilisateurs">
+                    <figcaption>Vue d'ensemble des utilisateurs avec options de gestion</figcaption>
+                </figure>
+                <figure>
+                    <img src="section-contrats/30.modifiy user.png" alt="Formulaire de modification d'utilisateur">
+                    <figcaption>Écran de modification détaillée d'un utilisateur</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">03</span>
+                <h2>Synthèse financière de la tranche</h2>
+            </div>
+            <p>Le tableau de synthèse (`section-appel-offre/03.tranche2025.png`) récapitule les crédits ouverts, consommés et restants. Validez l’adéquation entre l’enveloppe disponible et le montant que vous comptez engager. Les colonnes de suivi permettent d’anticiper les besoins de réajustement budgétaire ou de réaffectation de crédits.</p>
+            <figure>
+                <img src="section-appel-offre/03.tranche2025.png" alt="Synthèse des crédits">
+                <figcaption>Tableau de bord des budgets par ligne et par wilaya.</figcaption>
+            </figure>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">04</span>
+                <h2>Détail de la tranche 2025</h2>
+            </div>
+            <p>La vue détail (`section-appel-offre/04.detail-de-la-tranche-2025.png`) fournit la répartition annuelle des montants. Analysez les affectations par lot ou par nature de travaux pour préparer vos dossiers d’appel à consultation et justifier les montants dans les pièces administratives.</p>
+            <figure>
+                <img src="section-appel-offre/04.detail-de-la-tranche-2025.png" alt="Détail de la tranche 2025">
+                <figcaption>Les indicateurs de consommation budgétaire guident vos arbitrages.</figcaption>
+            </figure>
+        </section>
+
+        <section class="stage" id="module-decisions-financieres">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">05</span>
+                    <h2 class="text-3xl font-bold text-green-800">Accès au module décision de financement</h2>
+                </div>
+            </div>
+            <p>La carte dédiée (`section-appel-offre/05.decision de financement.png`) ouvre la zone de consultation. Cliquez sur <em>Consulter</em> pour afficher les décisions existantes.</p>
+            <figure>
+                <img src="section-appel-offre/05.decision%20de%20financement.png" alt="Carte décision de financement">
+                <figcaption>Entrée rapide vers la gestion des décisions financières.</figcaption>
+            </figure>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">06</span>
+                <h2>Liste consolidée des décisions</h2>
+            </div>
+            <p>La grille (`section-appel-offre/06.list -de-decision de-financement.png`) réunit toutes les décisions validées. Identifiez rapidement montants, dates, wilayas concernées et pièces jointes. Servez-vous des icônes latérales pour accéder aux documents ou déclencher une mise à jour sans quitter la vue consolidée.</p>
+            <figure>
+                <img src="section-appel-offre/06.list%20-de-decision%20de-financement.png" alt="Liste des décisions financières">
+                <figcaption>Actions disponibles : édition, duplication, suppression et téléchargements.</figcaption>
+            </figure>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">07</span>
+                <h2>Carte décision détaillée</h2>
+            </div>
+            <p>Chaque carte (`section-appel-offre/10.carte-decision-financier.png`) synthétise les éléments principaux : nature de l’opération, date de validation, montant et wilaya concernée. Les boutons d’action permettent d’accéder directement aux pièces stratégiques. Utilisez-les pour préparer vos réunions de suivi et vérifier la cohérence des pièces contractuelles.</p>
+            <ul>
+                <li><strong>Lecture rapide</strong> : identifiez en un coup d’œil l’état de contractualisation et le montant engagé.</li>
+                <li><strong>Accès directs</strong> : utilisez les icônes pour éditer, supprimer, dupliquer ou consulter les documents associés.</li>
+            </ul>
+            <figure>
+                <img src="section-appel-offre/10.carte-decision-financier.png" alt="Carte décision financière">
+                <figcaption>La carte regroupe l’intégralité des informations opérationnelles d’une décision.</figcaption>
+            </figure>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">08</span>
+                <h2>Création d’une nouvelle décision</h2>
+            </div>
+            <p>Utilisez le bouton (`section-appel-offre/07.bouton-nouvelle-decision-de-financement.png`) pour initier une décision. Complétez ensuite le formulaire et joignez les pièces requises. Informez vos équipes de la création en partageant le numéro de dossier généré.</p>
+            <p>Avant de poursuivre, assurez-vous que le dossier technique et financier a bien été validé par les parties prenantes internes. Le bouton de création ouvre une session contrôlée : toute saisie incomplète peut être sauvegardée en brouillon via les options du module.</p>
+            <figure>
+                <img src="section-appel-offre/07.bouton-nouvelle-decision-de-financement.png" alt="Bouton nouvelle décision">
+                <figcaption>Point d’entrée vers le formulaire de saisie d’une décision financière.</figcaption>
+            </figure>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">09</span>
+                <h2>Saisir les informations de la décision</h2>
+            </div>
+            <p>La fenêtre <em>Ajouter une nouvelle décision financière</em> (`section-appel-offre/08.ajout-de-une-nouvelle-decision-de-financement.png`) recueille la date, le montant, l’intitulé de l’opération et la pièce jointe officielle. Profitez-en pour intégrer des notes internes ou références de projet si votre procédure l’impose.</p>
+            <ul>
+                <li><strong>Date</strong> : sélectionnez la date de validation via le sélecteur calendrier.</li>
+                <li><strong>Montant</strong> : indiquez le budget accordé en dinars algériens.</li>
+                <li><strong>Intitulé</strong> : décrivez précisément l’opération financée.</li>
+                <li><strong>Justificatif</strong> : téléversez le cahier des charges ou l’appel d’offres correspondant.</li>
+            </ul>
+            <p>Ce formulaire effectue une validation automatique des champs obligatoires. La pièce jointe peut être mise à jour ultérieurement, mais il est recommandé d’y intégrer immédiatement la version signée pour limiter les itérations.</p>
+            <p>Une fois l’ensemble des informations complété, utilisez le bouton <em>Ajouter</em>. Le système génère alors un numéro de dossier et alimente la liste consolidée pour permettre le suivi budgétaire.</p>
+            <figure>
+                <img src="section-appel-offre/08.ajout-de-une-nouvelle-decision-de-financement.png" alt="Formulaire d’ajout d’une décision">
+                <figcaption>Renseignez tous les champs requis avant de cliquer sur <em>Ajouter</em>.</figcaption>
+            </figure>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">10</span>
+                <h2>Modifier une décision existante</h2>
+            </div>
+            <p>La fenêtre d’édition (`section-appel-offre/09.modifier-une-decision-de-finansement.png`) permet d’actualiser les valeurs ou de remplacer la pièce jointe si la décision évolue. Assurez-vous que les services financiers et juridiques sont informés de la modification pour maintenir les alignements budgétaires.</p>
+            <ul>
+                <li><strong>Mise à jour</strong> : ajustez la date, le montant ou l’intitulé selon les arbitrages.</li>
+                <li><strong>Pièce jointe</strong> : supprimez le fichier obsolète et importez la version révisée.</li>
+                <li><strong>Validation</strong> : cliquez sur <em>Modifier</em> pour enregistrer les changements.</li>
+            </ul>
+            <p>Toute modification laisse une trace dans l’historique des décisions. Veillez à consigner, dans la zone de commentaires du module, les motifs de l’ajustement pour favoriser la traçabilité et faciliter les audits ultérieurs.</p>
+            <p>Après validation, un contrôle rapide de la carte correspondante est recommandé afin de s’assurer que les nouveaux montants et documents ont bien été actualisés côté utilisateurs.</p>
+            <figure>
+                <img src="section-appel-offre/09.modifier-une-decision-de-finansement.png" alt="Formulaire de modification">
+                <figcaption>Contrôlez les informations avant validation pour garantir la traçabilité.</figcaption>
+            </figure>
+        </section>
+
+        <div class="module-separator" id="module-appels-offres">
+            <h2>Module Appels d’offres</h2>
+            <p>Basculer vers la gestion des appels d’offres : création, suivi et modification des consultations rattachées à chaque décision de financement.</p>
+        </div>
+
+        <section class="stage">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">11</span>
+                <h2>Consulter un appel d’offre</h2>
+            </div>
+            <p>Depuis la carte décision, le bouton (`section-appel-offre/11.boutton appel d'offre.png`) ouvre la liste des appels d’offre rattachés. Chaque document assure la conformité juridique de la procédure et peut être partagé avec les partenaires institutionnels.</p>
+            <ul>
+                <li><strong>Accès rapide</strong> : téléchargez le PDF d’appel d’offre en un clic.</li>
+                <li><strong>Suivi</strong> : contrôlez le statut (publié, partiellement validé, etc.).</li>
+            </ul>
+            <figure>
+                <img src="section-appel-offre/11.boutton appel d'offre.png" alt="Bouton appel d'offre">
+                <figcaption>Bouton d’accès aux appels d’offre liés à la décision sélectionnée.</figcaption>
+            </figure>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">12</span>
+                <h2>Suivi des appels d’offre</h2>
+            </div>
+            <p>La vue consolidée (`section-appel-offre/12.list des appel d'offre de la desicion Beskra.png`) indique les dates clés, les montants consommés et le reliquat disponible. Elle est essentielle pour vérifier la conformité financière et planifier les lancements de nouveaux lots.</p>
+            <ul>
+                <li><strong>Analyse financière</strong> : comparez le montant attribué au budget initial.</li>
+                <li><strong>Gestion des lots</strong> : identifiez le nombre de lots et les dates de chaque étape.</li>
+                <li><strong>Traçabilité documentaire</strong> : accédez aux fichiers PDF et à la messagerie depuis cette vue.</li>
+            </ul>
+            <figure>
+                <img src="section-appel-offre/12.list des appel d'offre de la desicion Beskra.png" alt="Tableau des appels d'offre">
+                <figcaption>Tableau de synthèse pour piloter l’exécution des appels d’offre rattachés.</figcaption>
+            </figure>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">13</span>
+                <h2>Lancer un nouvel appel d’offre</h2>
+            </div>
+            <p>Utilisez le bouton (`section-appel-offre/13.bouton vouvele appel d'offre.png`) pour créer un appel d’offre relié à la décision sélectionnée. Cette action ouvre un formulaire dédié aux informations réglementaires et déclenche la préparation des pièces pour la publication dans les quotidiens.</p>
+            <ul>
+                <li><strong>Pré-requis</strong> : vérifier les crédits disponibles et les validations internes.</li>
+                <li><strong>Traçabilité</strong> : chaque lancement est historisé pour audit ultérieur.</li>
+            </ul>
+            <figure>
+                <img src="section-appel-offre/13.bouton vouvele appel d'offre.png" alt="Bouton nouvel appel d'offre">
+                <figcaption>Bouton de déclenchement de la saisie d’un nouvel appel d’offre.</figcaption>
+            </figure>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">14</span>
+                <h2>Renseigner un appel d’offre</h2>
+            </div>
+            <p>Le formulaire (`section-appel-offre/14.ajouter une nouvelles appel d'offre.png`) permet de saisir les dates clés, le numéro d’avis, le nombre de lots et le montant de l’ANEP. Il autorise également la pièce jointe officielle et l’ajout d’attributions. Renseignez le champ « État global » en cohérence avec les procès-verbaux de la commission d’évaluation.</p>
+            <ul>
+                <li><strong>Informations générales</strong> : dates de publication, de dépôt et numéro d’avis.</li>
+                <li><strong>Évaluation</strong> : définir l’état global et enregistrer les pièces d’évaluation.</li>
+                <li><strong>Attributions</strong> : ajouter les lots, l’entreprise attributaire et les montants correspondants.</li>
+            </ul>
+            <figure>
+                <img src="section-appel-offre/14.ajouter une nouvelles appel d'offre.png" alt="Formulaire d'ajout d'appel d'offre">
+                <figcaption>Interface complète pour créer un appel d’offre et ses attributions.</figcaption>
+            </figure>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">15</span>
+                <h2>Modifier un appel d’offre</h2>
+            </div>
+            <p>La vue (`section-appel-offre/15.modifier une appel d'offre.png`) est dédiée aux mises à jour : dates ajustées, états des lots, montants attribués et remplacement des pièces jointes. Profitez de cet écran pour archiver les anciennes versions via la messagerie interne et notifier les opérateurs.</p>
+            <ul>
+                <li><strong>Ajustements</strong> : actualisez les montants attribués et les dates de dépouillement.</li>
+                <li><strong>Pièces</strong> : téléversez les PDF révisés des avis et des attributions.</li>
+                <li><strong>Lots</strong> : modifiez l’état lot par lot (validé, infructueux, etc.).</li>
+            </ul>
+            <figure>
+                <img src="section-appel-offre/15.modifier une appel d'offre.png" alt="Formulaire de modification d'appel d'offre">
+                <figcaption>Mise à jour détaillée des lots et des montants au sein d’un appel d’offre existant.</figcaption>
+            </figure>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">16</span>
+                <h2>Ajouter le cahier des charges</h2>
+            </div>
+            <p>La fenêtre (`section-appel-offre/16.introduire les information de cahier des cherges.png`) enregistre la date de visa du cahier des charges et le document PDF signé. Ce jalon garantit que la consultation repose sur un dossier homologué.</p>
+            <ul>
+                <li><strong>Visa</strong> : renseignez la date officielle de validation par l’autorité compétente.</li>
+                <li><strong>Chargement</strong> : téléversez le fichier PDF intégral, idéalement horodaté.</li>
+                <li><strong>Archivage</strong> : conservez une copie interne pour les audits et contrôles.</li>
+            </ul>
+            <figure>
+                <img src="section-appel-offre/16.introduire les information de cahier des cherges.png" alt="Module de saisie du cahier des charges">
+                <figcaption>Formalisation du cahier des charges avec date de visa et pièce jointe officielle.</figcaption>
+            </figure>
+        </section>
+
+        <div class="module-separator" id="module-appels-offres">
+            <h2>Module Appels d’offres</h2>
+            <p>Basculer vers la gestion des appels d’offres : création, suivi et modification des consultations rattachées à chaque décision de financement.</p>
+        </div>
+
+        <section class="stage">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">17</span>
+                <h2>Suivre la liste des contrats</h2>
+            </div>
+            <p>Le tableau (`section-contrats/17.list%20des%20contrats.png`) centralise les contrats associés à la tranche 2025. Surveillez l’état d’avancement, les dates de signature et les montants engagés pour sécuriser la chaîne budgétaire. Cette vue garantit l’alignement entre décisions, marchés et contrats exécutés.</p>
+            <ul>
+                <li><strong>Filtrage</strong> : repérez rapidement un contrat par numéro ou intitulé.</li>
+                <li><strong>Engagements</strong> : vérifiez les montants engagés et comparez-les aux décisions de financement pour éviter les dépassements.</li>
+                <li><strong>Actions</strong> : accédez aux options de modification, téléchargement ou archivage.</li>
+            </ul>
+            <figure>
+                <img src="section-contrats/17.list%20des%20contrats.png" alt="Liste des contrats">
+                <figcaption>Vue consolidée des contrats signés et de leur état d’avancement.</figcaption>
+            </figure>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">18</span>
+                <h2>Ajouter ou filtrer un contrat</h2>
+            </div>
+            <p>Le bandeau (`section-contrats/18.bouton%20ajouter%20un%20nouvelle%20contrat%20ou%20filter%20par%20numero.png`) propose un bouton d’ajout et un champ de filtrage. Utilisez-le pour créer un contrat ou retrouver un dossier précis sans parcourir toute la liste.</p>
+            <ul>
+                <li><strong>Nouvel enregistrement</strong> : initiez la création d’un contrat lorsque le marché est attribué.</li>
+                <li><strong>Recherche</strong> : filtrez par numéro pour accéder à un contrat existant, vérifier son état et, si besoin, le mettre à jour.</li>
+            </ul>
+            <figure>
+                <img src="section-contrats/18.bouton%20ajouter%20un%20nouvelle%20contrat%20ou%20filter%20par%20numero.png" alt="Bouton ajouter un contrat">
+                <figcaption>Zone d’accès rapide pour créer ou filtrer les contrats.</figcaption>
+            </figure>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">19</span>
+                <h2>Consulter la fiche contrat</h2>
+            </div>
+            <p>La fiche (`section-contrats/19.carte%20de%20contrat.png`) affiche les informations essentielles d’un contrat : référence, wilaya, montant et actions disponibles. Elle sert de point d’entrée pour la revue juridique et la validation documentaire.</p>
+            <ul>
+                <li><strong>En-tête</strong> : référence contrat, programme, tranche et wilaya pour situer instantanément l’opération.</li>
+                <li><strong>Bloc financier</strong> : montant initial, montants avenantés cumulés et reliquat d’engagement.</li>
+                <li><strong>Dates clés</strong> : date de signature, date d’effet, échéance de fin de prestation.</li>
+                <li><strong>Raccourcis</strong> : boutons de consultation des pièces jointes, des avenants, du CPT ou de l’historique.</li>
+                <li><strong>Icônes d’état</strong> : pictogrammes <em>vert</em>/<em>orange</em>/<em>rouge</em> pour suivre la conformité et les actions en attente.</li>
+            </ul>
+            <p>Avant chaque comité de suivi, capturez ou exportez cette carte pour préparer les points d’attention (retards, avenants en cours, pièces manquantes).</p>
+            <figure>
+                <img src="section-contrats/19.carte%20de%20contrat.png" alt="Carte contrat">
+                <figcaption>Carte synthétique pour contrôler rapidement les informations d’un contrat.</figcaption>
+            </figure>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">20</span>
+                <h2>Renseigner un nouveau contrat</h2>
+            </div>
+            <p>Le formulaire détaillé (`section-contrats/20.ajouter%20un%20nouvelle%20contrat%20pour%20la%20tranche%202025.png`) permet de saisir les informations contractuelles : numéro, entreprise attributaire, montants et échéances. C’est l’étape de référence pour générer le contrat officiel.</p>
+            <ul>
+                <li><strong>Informations générales</strong> : numéro de contrat, fournisseur, wilaya concernée, objet de la prestation.</li>
+                <li><strong>Données clés</strong> : date d’entrée en vigueur, durée d’exécution, référence de décision/DCL, montant TTC et HT.</li>
+                <li><strong>Parties prenantes</strong> : coordonnées du chef de projet DGF, du représentant de l’entreprise et du contrôleur technique.</li>
+                <li><strong>Plan de paiement</strong> : champs pour saisir les jalons de versement ou d’avancement (ex : acompte, réception provisoire, réception définitive).</li>
+                <li><strong>Pièces jointes</strong> : ajoutez le contrat signé, l’ordre de service, l’attestation de non-endettement et les garanties.</li>
+            </ul>
+            <p>À la sauvegarde, un numéro d’avenant est généré automatiquement : conservez-le dans vos échanges officiels et dans le suivi budgétaire.</p>
+            <figure>
+                <img src="section-contrats/20.ajouter%20un%20nouvelle%20contrat%20pour%20la%20tranche%202025.png" alt="Formulaire d'ajout de contrat">
+                <figcaption>Formulaire complet pour enregistrer un contrat lié à la tranche 2025.</figcaption>
+            </figure>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">21</span>
+                <h2>Modifier un contrat existant</h2>
+            </div>
+            <p>La fenêtre d’édition (`section-contrats/21.mofidier%20un%20contrat.png`) met à jour les montants, dates de fin et pièces jointes. Chaque modification déclenche un enregistrement d’historique pour faciliter les audits.</p>
+            <ul>
+                <li><strong>Suivi des avenants</strong> : mise à jour du montant engagé, du reliquat et affectation du numéro d’avenant correspondant.</li>
+                <li><strong>Paramètres contractuels</strong> : champs pour ajuster les dates de démarrage/fin, la durée et les clauses pénales.</li>
+                <li><strong>Documents</strong> : remplacez les PDF obsolètes (avenant, rapport d’analyse, PV de réunion) pour conserver une version fiable et horodatée.</li>
+                <li><strong>Traçabilité</strong> : saisissez une note interne expliquant la modification, référencée par la date et le service à l’origine de la demande.</li>
+                <li><strong>Statut de validation</strong> : basculez l’état (brouillon, en cours, validé) pour informer les équipes du niveau d’avancement.</li>
+            </ul>
+            <p>Après validation, un contrôle rapide de la carte correspondante est recommandé afin de s’assurer que les nouveaux montants et documents ont bien été actualisés côté utilisateurs.</p>
+            <figure>
+                <img src="section-contrats/21.mofidier%20un%20contrat.png" alt="Formulaire de modification de contrat">
+                <figcaption>Mise à jour détaillée d’un contrat déjà enregistré.</figcaption>
+            </figure>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">22</span>
+                <h2>Joindre le cahier des prescriptions techniques</h2>
+            </div>
+            <p>L’écran (`section-contrats/22.cahier%20des%20prescription%20techniques%20(CPT).png`) sécurise la validation du CPT associé au contrat. Il garantit que tous les documents techniques sont conformes aux exigences légales.</p>
+            <ul>
+                <li><strong>Référence CPT</strong> : numéro, date de visa, signataire et service émetteur.</li>
+                <li><strong>Prestations</strong> : rubrique listant les principaux lots ou postes couverts par le CPT.</li>
+                <li><strong>Fichier</strong> : téléversez le document PDF signé accompagné, si nécessaire, des annexes techniques.</li>
+                <li><strong>Versioning</strong> : conservez les anciennes versions avec indication “obsolète” pour suivre l’évolution des exigences.</li>
+                <li><strong>Archivage</strong> : synchronisez le CPT avec les dossiers décisionnels et les appels d’offres pour un accès transversal.</li>
+            </ul>
+            <p>Cette validation est essentielle pour garantir la conformité technique et juridique des contrats.</p>
+            <figure>
+                <img src="section-contrats/22.cahier%20des%20prescription%20techniques%20(CPT).png" alt="Module de dépôt du CPT">
+                <figcaption>Validation du cahier des prescriptions techniques pour un contrat donné.</figcaption>
+            </figure>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">23</span>
+                <h2>Synthèse des documents d’appel à consultation</h2>
+            </div>
+            <p>Les dossiers PDF fournis (« Appel d’offre », « Attribution », « Décision ») constituent la base réglementaire pour engager les consultations auprès des entreprises forestières. Ils s’alignent sur le décret présidentiel n°15-247 et servent de référence pour tout audit.</p>
+            <ul>
+                <li><strong>Avis d’appel d’offres</strong> : détaille les lots (plantations, correction torrentielle), les conditions d’éligibilité (code 101-103), la capacité financière exigée, la durée de préparation et les modalités de dépôt.</li>
+                <li><strong>Attribution provisoire</strong> : récapitule les entreprises retenues, montants TTC, délais d’exécution, critères de notation et voies de recours conformément au décret présidentiel n°15-247.</li>
+                <li><strong>Documents décisionnels</strong> : comprennent le bon de commande, la DCL, les notifications aux soumissionnaires et les preuves de publication BOMOP/quotidiens.</li>
+                <li><strong>Traçabilité</strong> : chaque document doit mentionner la date, l’auteur, la référence interne et être signé numériquement si requis.</li>
+            </ul>
+            <p>Chaque nouvelle consultation doit s’appuyer sur ces modèles pour garantir la conformité juridique et la transparence des procédures.</p>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">25</span>
+                <h2>Liste des avenants de la tranche</h2>
+            </div>
+            <p>La vue (`section-contrats/27.liste%20des%20venants%20de%20la%20tranche.png`) recense tous les avenants associés aux contrats de la tranche 2025. Elle offre un suivi consolidé des montants supplémentaires engagés et de leurs statuts.</p>
+            <ul>
+                <li><strong>Repérage rapide</strong> : filtrez par contrat ou par numéro d’avenant pour identifier les dossiers sensibles.</li>
+                <li><strong>Contrôle budgétaire</strong> : comparez les montants avenantés avec l’enveloppe disponible avant validation.</li>
+                <li><strong>Traçabilité</strong> : accédez aux actions de consultation, de modification ou de téléchargement des pièces jointes.</li>
+                <li><strong>Colonnes clés</strong> : surveillez le <em>montant initial</em>, le <em>montant avenant</em>, la <em>date d’approbation</em> et le <em>statut</em> (brouillon, validé, en cours de signature).</li>
+            </ul>
+            <p>Utilisez le bouton d’export pour générer un relevé des avenants et l’intégrer au rapport trimestriel transmis au ministère.</p>
+            <figure>
+                <img src="section-contrats/27.liste%20des%20venants%20de%20la%20tranche.png" alt="Liste des avenants de la tranche">
+                <figcaption>Tableau consolidé des avenants en cours et de leurs montants additionnels.</figcaption>
+            </figure>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">26</span>
+                <h2>Ajouter un nouvel avenant</h2>
+            </div>
+            <p>L’écran (`section-contrats/28.Ajouter%20un%20nouveu%20avenant.png`) permet de saisir un avenant en précisant les montants complémentaires, les motifs et les pièces justificatives.</p>
+            <ul>
+                <li><strong>Données financières</strong> : renseignez le montant additionnel, la date d’effet et la référence du contrat initial.</li>
+                <li><strong>Justification</strong> : documentez le motif de l’avenant (glissement de planning, complément de prestations, etc.).</li>
+                <li><strong>Pièces jointes</strong> : téléversez l’avenant signé et les rapports d’évaluation pour garantir la conformité.</li>
+                <li><strong>Validation interne</strong> : indiquez le service approbateur et joignez la note de calcul correspondante.</li>
+                <li><strong>Suivi</strong> : inscrivez la date de notification à l’entreprise et le point de contact projet pour assurer la diffusion.</li>
+            </ul>
+            <p>À la sauvegarde, un numéro d’avenant est généré automatiquement : conservez-le dans vos échanges officiels et dans le suivi budgétaire.</p>
+            <figure>
+                <img src="section-contrats/28.Ajouter%20un%20nouveu%20avenant.png" alt="Formulaire d'ajout d'un avenant">
+                <figcaption>Formulaire complet pour enregistrer un avenant et ajuster le suivi contractuel.</figcaption>
+            </figure>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">27</span>
+                <h2>Détails des actions impactées</h2>
+            </div>
+            <p>L’écran (`section-contrats/26.detail%20de%20l'action%20impactee.png`) affiche la décomposition d’un projet affecté par un avenant ou une décision. Il permet d’identifier les lignes budgétaires impactées et les pièces associées.</p>
+            <ul>
+                <li><strong>Analyse ciblée</strong> : visualisez les montants par action, wilaya et type d’intervention.</li>
+                <li><strong>Pièces justificatives</strong> : consultez les documents qui motivent l’ajustement (PV, photos, rapports).</li>
+                <li><strong>Suivi des engagements</strong> : contrôlez la cohérence entre l’avenant, l’action impactée et les contrats concernés.</li>
+                <li><strong>Historique</strong> : affichez les versions précédentes pour retracer la chronologie des ajustements.</li>
+                <li><strong>Commentaires</strong> : renseignez le champ “Observation” pour documenter les décisions prises en réunion.</li>
+            </ul>
+            <p>Cette vue sert de base au reporting opérationnel : exportez-la pour préparer les comités de suivi et informer les chefs de projet locaux.</p>
+            <figure>
+                <img src="section-contrats/26.detail%20de%20l'action%20impactee.png" alt="Détail de l'action impactée">
+                <figcaption>Vue détaillée des actions et montants ajustés suite à un avenant.</figcaption>
+            </figure>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">28</span>
+                <h2>Annexes et bonnes pratiques</h2>
+            </div>
+            <p>Complétez votre démarche avec ces annexes :</p>
+            <ul>
+                <li><strong>Références réglementaires</strong> : décret présidentiel n°15-247, directives DGF sur les marchés publics, guides internes de la Direction des Finances.</li>
+                <li><strong>Modèles de documents</strong> : cahier des charges type, grille d’évaluation des offres, rapport de réception des travaux.</li>
+                <li><strong>Bonnes pratiques</strong> : planifier des revues trimestrielles des contrats, tracer chaque modification dans un journal partagé, stocker les PDF originaux dans une arborescence normalisée.</li>
+                <li><strong>Outils utiles</strong> : GED institutionnelle, tableur de suivi budgétaire, générateur de rapports (Pandoc) pour consolider les dossiers.</li>
+                <li><strong>Plan de communication</strong> : inclure un canevas de compte rendu et un modèle de mail de diffusion des avenants.</li>
+            </ul>
+            <p>Actualisez les annexes après chaque audit ou retour terrain : datez les documents, mentionnez les contributeurs et stockez-les dans la GED pour garantir la traçabilité collective.</p>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">29</span>
+                <h2>Glossaire des termes essentiels</h2>
+            </div>
+            <p>Utilisez ce glossaire pour harmoniser le vocabulaire entre équipes :</p>
+            <ul>
+                <li><strong>DGF</strong> : Direction Générale des Forêts, autorité pilote du programme.</li>
+                <li><strong>GED</strong> : Gestion Électronique des Documents, référentiel officiel pour l’archivage.</li>
+                <li><strong>CPT</strong> : Cahier des Prescriptions Techniques annexé aux contrats.</li>
+                <li><strong>AO</strong> : Appel d’Offres, procédure de consultation des entreprises.</li>
+                <li><strong>DCL</strong> : Décision de Créance Locale, décision financière émise par la DGF.</li>
+                <li><strong>RAR</strong> : Rapport d’Achèvement et de Réception, document attestant la finalisation d’une action.</li>
+            </ul>
+            <p>Enrichissez régulièrement ce glossaire avec les acronymes propres à votre wilaya, en précisant la définition et le service référent pour faciliter l’onboarding des nouveaux collaborateurs.</p>
+        </section>
+
+        <div class="note">Pour formaliser vos démarches, générez systématiquement la version PDF du guide et rattachez-la à votre documentation projet.</div>
+
+        <div class="module-separator" id="module-suivi-execution">
+            <h2>Module Suivi d'exécution</h2>
+            <blockquote class="proverb">
+                <p>« Mieux vaut prévenir que guérir. »<br><em>Proverbe français</em></p>
+            </blockquote>
+            <p>Outils et méthodes pour le suivi avancé des projets et la gestion des performances.</p>
+        </div>
+
+        <section class="stage">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">29</span>
+                <h2>Tableau de bord de suivi</h2>
+            </div>
+            <p>Le tableau de bord de suivi (`section-suivi/29.tableau-bord.png`) offre une vue d'ensemble des indicateurs clés de performance (KPI) du projet. Il permet de suivre l'avancement, les budgets consommés et les échéances à venir.</p>
+            <ul>
+                <li><strong>Vue globale</strong> : Suivi des indicateurs financiers et temporels</li>
+                <li><strong>Alertes</strong> : Notifications pour les dépassements et retards</li>
+                <li><strong>Rapports</strong> : Génération de rapports périodiques</li>
+            </ul>
+            <figure class="screenshot">
+                <img src="section-contrats/31.tableu de board.png" alt="Tableau de bord de suivi">
+                <figcaption>Vue d'ensemble des indicateurs clés du projet</figcaption>
+            </figure>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">30</span>
+                <h2>Tableau de bord avancé</h2>
+            </div>
+            <p>Le tableau de bord avancé (<code>section-suivi/31.tableau-de-board.png</code>) constitue l'outil central de pilotage du projet Barrage Vert. Cette interface interactive offre une vision consolidée et en temps réel de l'ensemble des indicateurs clés de performance (KPI) du projet.</p>
+            
+            <h3>Fonctionnalités principales</h3>
+            <div class="features-grid">
+                <div class="feature">
+                    <h4>Tableau de bord personnalisable</h4>
+                    <ul>
+                        <li>Widgets configurables par glisser-déposer</li>
+                        <li>Vues personnalisables par profil utilisateur</li>
+                        <li>Filtres dynamiques par période, région et type d'intervention</li>
+                        <li>Mode hors ligne avec synchronisation automatique</li>
+                    </ul>
+                </div>
+                <div class="feature">
+                    <h4>Analyse financière avancée</h4>
+                    <ul>
+                        <li>Suivi budgétaire par poste et par lot</li>
+                        <li>Analyse des écarts (prévisionnel/réel)</li>
+                        <li>Gestion des engagements et des décaissements</li>
+                        <li>Alertes automatiques sur dépassements</li>
+                    </ul>
+                </div>
+                <div class="feature">
+                    <h4>Suivi opérationnel</h4>
+                    <ul>
+                        <li>Avancement physique par chantier</li>
+                        <li>Gestion des ressources humaines et matérielles</li>
+                        <li>Suivi des indicateurs de qualité</li>
+                        <li>Calendrier des interventions</li>
+                    </ul>
+                </div>
+                <div class="feature">
+                    <h4>Indicateurs environnementaux</h4>
+                    <ul>
+                        <li>Surfaces traitées (ha)</li>
+                        <li>Taux de survie des plantations</li>
+                        <li>Impact sur la biodiversité</li>
+                        <li>Suivi carbone</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Visualisation des données</h3>
+            <div class="features-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 20px 0;">
+                <div class="feature" style="background: #f5f7f6; padding: 15px; border-radius: 8px; border-left: 3px solid var(--green-light);">
+                    <h4 style="margin-top: 0; color: var(--green-dark);">Cartographie interactive</h4>
+                    <p style="margin-bottom: 0;">Visualisation géographique des interventions avec différentes couches d'information (zones traitées, programmées, en retard).</p>
+                </div>
+                <div class="feature" style="background: #f5f7f6; padding: 15px; border-radius: 8px; border-left: 3px solid var(--green-light);">
+                    <h4 style="margin-top: 0; color: var(--green-dark);">Graphiques dynamiques</h4>
+                    <p style="margin-bottom: 0;">Histogrammes, courbes d'avancement, camemberts et indicateurs de tendance.</p>
+                </div>
+                <div class="feature" style="background: #f5f7f6; padding: 15px; border-radius: 8px; border-left: 3px solid var(--green-light);">
+                    <h4 style="margin-top: 0; color: var(--green-dark);">Tableaux de données</h4>
+                    <p style="margin-bottom: 0;">Exportables en différents formats (Excel, PDF) avec filtres et tris avancés.</p>
+                </div>
+                <div class="feature" style="background: #f5f7f6; padding: 15px; border-radius: 8px; border-left: 3px solid var(--green-light);">
+                    <h4 style="margin-top: 0; color: var(--green-dark);">Alertes et notifications</h4>
+                    <p style="margin-bottom: 0;">Système d'alerte configurable par seuil et par utilisateur.</p>
+                </div>
+            </div>
+
+            <h3>Accès et sécurité</h3>
+            <ul>
+                <li>Accès sécurisé par authentification forte</li>
+                <li>Gestion fine des droits utilisateurs</li>
+                <li>Historique des actions et traçabilité</li>
+                <li>Export sécurisé des données</li>
+            </ul>
+
+            <figure class="screenshot">
+                <img src="section-suivi/31.tableau-de-board.png" alt="Tableau de bord avancé du projet Barrage Vert">
+                <figcaption>Interface complète du tableau de bord avec indicateurs clés, graphiques et cartographie interactive</figcaption>
+            </figure>
+
+            <div class="note important">
+                <h4>Bonnes pratiques d'utilisation</h4>
+                <ul>
+                    <li>Configurez vos tableaux de bord en fonction de votre rôle et de vos besoins spécifiques</li>
+                    <li>Définissez des alertes personnalisées pour les indicateurs critiques</li>
+                    <li>Exportez régulièrement les rapports pour archivage</li>
+                    <li>Formez les utilisateurs aux fonctionnalités avancées</li>
+                </ul>
+            </div>
+
+            <div class="tip">
+                <h4>Astuce</h4>
+                <p>Utilisez la fonction de comparaison pour analyser les écarts entre différentes périodes ou entre différentes zones géographiques.</p>
+            </div>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">31</span>
+                <h2>Gestion des rapports d'avancement</h2>
+            </div>
+            <p>Le module de rapports (`section-suivi/30.rapports-avancement.png`) permet de générer et partager des rapports détaillés sur l'état d'avancement du projet avec les différentes parties prenantes.</p>
+            <ul>
+                <li><strong>Modèles personnalisables</strong> : Adaptez les rapports aux besoins spécifiques</li>
+                <li><strong>Export multiple</strong> : Formats PDF, Excel, et PowerPoint</li>
+                <li><strong>Planification</strong> : Programmation des envois automatiques</li>
+            </ul>
+        </section>
+
+        <div class="module-separator" id="module-risques">
+            <h2>Gestion des Risques</h2>
+            <blockquote class="proverb">
+                <p>« Les promesses n'engagent que ceux qui les écoutent. »<br><em>Proverbe chinois</em></p>
+            </blockquote>
+            <p>Identification, évaluation et suivi des risques projet pour une gestion proactive.</p>
+        </div>
+
+        <section class="stage">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">31</span>
+                <h2>Registre des risques</h2>
+            </div>
+            <p>Le registre des risques (`section-risques/31.registre-risques.png`) est l'outil central pour identifier, évaluer et suivre les risques potentiels du projet.</p>
+            <ul>
+                <li><strong>Identification</strong> : Détection précoce des risques</li>
+                <li><strong>Évaluation</strong> : Probabilité et impact</li>
+                <strong>Plan d'action</strong> : Mesures préventives et correctives</li>
+            </ul>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">32</span>
+                <h2>Suivi des actions correctives</h2>
+            </div>
+            <p>Le module de suivi des actions (`section-risques/32.suivi-actions.png`) permet de gérer les mesures correctives issues de l'analyse des risques.</p>
+            <ul>
+                <li><strong>Assignation</strong> : Responsables et échéances</li>
+                <li><strong>Suivi</strong> : État d'avancement des actions</li>
+                <li><strong>Documentation</strong> : Preuves et justificatifs</li>
+            </ul>
+        </section>
+
+        <div class="module-separator" id="module-cloture">
+            <h2>Clôture de Projet</h2>
+            <blockquote class="proverb">
+                <p>« Mieux vaut prévenir que guérir. »<br><em>Proverbe français</em></p>
+            </blockquote>
+            <p>Procédures et bonnes pratiques pour une clôture efficace du projet.</p>
+        </div>
+
+        <section class="stage">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">33</span>
+                <h2>Checklist de clôture</h2>
+            </div>
+            <p>La checklist de clôture (`section-cloture/33.checklist-cloture.png`) assure qu'aucune étape importante n'est oubliée lors de la finalisation du projet.</p>
+            <ul>
+                <li><strong>Livrables</strong> : Validation de tous les livrables</li>
+                <li><strong>Documentation</strong> : Archivage des documents</li>
+                <li><strong>Bilan</strong> : Retour d'expérience et leçons apprises</li>
+            </ul>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">34</span>
+                <h2>Archivage des documents</h2>
+            </div>
+            <p>La procédure d'archivage (`section-archives/34.procedure-archivage.png`) définit les règles de conservation et de classement des documents du projet.</p>
+            <ul>
+                <li><strong>Classement</strong> : Structure des dossiers</li>
+                <li><strong>Conservation</strong> : Durées légales</li>
+                <li><strong>Accès</strong> : Droits et restrictions</li>
+            </ul>
+        </section>
+
+        <div class="module-separator" id="module-analytique">
+            <h2>Analyse et Reporting</h2>
+            <blockquote class="proverb">
+                <p>« Les promesses n'engagent que ceux qui les écoutent. »<br><em>Proverbe chinois</em></p>
+            </blockquote>
+            <p>Outils d'analyse avancée pour une prise de décision éclairée.</p>
+        </div>
+
+        <section class="stage">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">35</span>
+                <h2>Tableaux de bord financiers</h2>
+            </div>
+            <p>Les tableaux de bord financiers (`section-analytique/35.tableaux-bord-financiers.png`) offrent une vue détaillée de la santé financière du projet.</p>
+            <ul>
+                <li><strong>Budget</strong> : Suivi des dépenses et engagements</li>
+                <li><strong>Prévisions</strong> : Estimations des coûts finaux</li>
+                <li><strong>Analyse</strong> : Écarts et tendances</li>
+            </ul>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">36</span>
+                <h2>Indicateurs de performance</h2>
+            </div>
+            <p>Le suivi des indicateurs de performance (`section-analytique/36.indicateurs-performance.png`) permet d'évaluer l'efficacité des processus du projet.</p>
+            <ul>
+                <li><strong>KPI</strong> : Définition et suivi</li>
+                <li><strong>Tableaux de bord</strong> : Visualisation des performances</li>
+                <li><strong>Rapports</strong> : Analyse des tendances</li>
+            </ul>
+        </section>
+
+        <div class="module-separator" id="module-formation">
+            <h2>Formation et Support</h2>
+            <blockquote class="proverb">
+                <p>« Mieux vaut prévenir que guérir. »<br><em>Proverbe français</em></p>
+            </blockquote>
+            <p>Ressources pour la formation des utilisateurs et le support technique.</p>
+        </div>
+
+        <section class="stage">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">37</span>
+                <h2>Centre de formation</h2>
+            </div>
+            <p>Le centre de formation (`section-formation/37.centre-formation.png`) regroupe l'ensemble des ressources pédagogiques pour les utilisateurs.</p>
+            <ul>
+                <li><strong>Tutoriels</strong> : Guides pas à pas</li>
+                <li><strong>Vidéos</strong> : Démonstrations pratiques</li>
+                <li><strong>FAQ</strong> : Réponses aux questions courantes</li>
+            </ul>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">38</span>
+                <h2>Support utilisateur</h2>
+            </div>
+            <p>Le module de support (`section-formation/38.support-utilisateur.png`) permet aux utilisateurs de soumettre des demandes d'assistance.</p>
+            <ul>
+                <li><strong>Ticket</strong> : Suivi des demandes</li>
+                <li><strong>Base de connaissances</strong> : Solutions aux problèmes courants</li>
+                <li><strong>Statut</strong> : État d'avancement des demandes</li>
+            </ul>
+        </section>
+
+        <div class="module-separator" id="module-annexes">
+            <h2>Annexes Techniques</h2>
+            <p>Références et ressources complémentaires pour les utilisateurs avancés.</p>
+        </div>
+
+        <section class="stage">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">39</span>
+                <h2>Glossaire technique</h2>
+            </div>
+            <p>Le glossaire technique (`section-annexes/39.glossaire-technique.png`) définit les termes spécifiques utilisés dans le projet.</p>
+            <ul>
+                <li><strong>Terminologie</strong> : Définitions précises</li>
+                <li><strong>Acronymes</strong> : Explications détaillées</li>
+                <li><strong>Références</strong> : Liens vers la documentation</li>
+            </ul>
+        </section>
+
+        <section class="stage">
+            <div class="stage-header bg-green-50 p-6 rounded-lg border-l-4 border-green-600 mb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-bold text-green-700">40</span>
+                <h2>Index thématique</h2>
+            </div>
+            <p>L'index thématique (`section-annexes/40.index-thematique.png`) permet une navigation rapide dans la documentation du projet.</p>
+            <ul>
+                <li><strong>Mots-clés</strong> : Accès direct aux sections</li>
+                <li><strong>Liens</strong> : Références croisées</li>
+                <li><strong>Recherche</strong> : Outil de recherche intégré</li>
+            </ul>
+        </section>
+
+
+        <div class="note">
+            <p>Ce guide évolue régulièrement. Consultez régulièrement la version en ligne pour bénéficier des dernières mises à jour et améliorations.</p>
+            <p>Pour toute question ou suggestion, contactez le support technique à l'adresse support@barragevert.dz</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>Programme Barrage Vert • Direction Générale des Forêts</p>
+        <p>Edition 2025 – 2026</p>
+    </footer>
+</body>
+</html>
